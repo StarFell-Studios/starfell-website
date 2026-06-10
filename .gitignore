@@ -1,0 +1,18 @@
+# StarFell — repo ignores
+
+# Working source assets — never commit (it's ~500MB of PSDs, master PNGs, PDFs).
+# The web-sized WebP derivatives live in docs/assets/ and ARE committed.
+StarFell Content/
+
+# OS / editor noise
+Thumbs.db
+.DS_Store
+desktop.ini
+*.swp
+*~
+.vscode/
+.idea/
+
+# Python cache (from the one-shot helper scripts)
+__pycache__/
+*.pyc
