@@ -61,6 +61,86 @@
     });
   });
 
+  // ---------- The Vault: lightbox + wing-nav (vault.html) ----------
+  const lightbox = document.getElementById('lightbox');
+  if (lightbox) {
+    const lbImg     = lightbox.querySelector('.lightbox-image');
+    const lbTitle   = lightbox.querySelector('.lightbox-title');
+    const lbMedium  = lightbox.querySelector('.lightbox-medium');
+    const lbCaption = lightbox.querySelector('.lightbox-caption');
+    const lbClose   = lightbox.querySelector('.lightbox-close');
+    const lbPrev    = lightbox.querySelector('.lightbox-prev');
+    const lbNext    = lightbox.querySelector('.lightbox-next');
+    const frames    = Array.from(document.querySelectorAll('.frame'));
+    let currentIdx  = -1;
+
+    const openLightbox = (idx) => {
+      const f = frames[idx];
+      if (!f) return;
+      currentIdx = idx;
+      lbImg.src = f.getAttribute('href');
+      lbImg.alt = f.dataset.title || '';
+      lbTitle.textContent = f.dataset.title || '';
+      lbMedium.textContent = f.dataset.medium || '';
+      lbCaption.textContent = f.dataset.caption || '';
+      lightbox.hidden = false;
+      requestAnimationFrame(() => lightbox.classList.add('open'));
+      document.body.classList.add('lightbox-open');
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('open');
+      document.body.classList.remove('lightbox-open');
+      setTimeout(() => { lightbox.hidden = true; lbImg.src = ''; }, 260);
+    };
+
+    const step = (delta) => openLightbox((currentIdx + delta + frames.length) % frames.length);
+
+    frames.forEach((f, i) => {
+      f.addEventListener('click', (e) => { e.preventDefault(); openLightbox(i); });
+    });
+    lbClose.addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click', () => step(-1));
+    lbNext.addEventListener('click', () => step(1));
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.hidden) return;
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowLeft')  step(-1);
+      else if (e.key === 'ArrowRight') step(1);
+    });
+
+    // Touch swipe — page through like a comic
+    let touchStartX = null;
+    lightbox.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+      if (touchStartX === null) return;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      touchStartX = null;
+      if (Math.abs(dx) > 40) step(dx > 0 ? -1 : 1);
+    }, { passive: true });
+  }
+
+  // ---------- Sticky chip-nav active state on scroll ----------
+  // Works for both .wing-chip / .wing (Museum) and .section-chip / .page-section (Story & Media).
+  const sectionChips = document.querySelectorAll('.wing-chip, .section-chip');
+  const sectionTargets = document.querySelectorAll('.wing, .page-section');
+  if (sectionChips.length && sectionTargets.length && 'IntersectionObserver' in window) {
+    const setActive = (id) => {
+      sectionChips.forEach(c => c.classList.toggle('active', c.getAttribute('href') === `#${id}`));
+    };
+    const io = new IntersectionObserver((entries) => {
+      const visible = entries.filter(e => e.isIntersecting)
+                             .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      if (visible[0]) setActive(visible[0].target.id);
+    }, { rootMargin: '-30% 0px -55% 0px', threshold: [0, 0.1, 0.5] });
+    sectionTargets.forEach(w => io.observe(w));
+  }
+
   // ---------- Lazy-load helper (covers/backgrounds set via data-bg) ----------
   const lazyBg = document.querySelectorAll('[data-bg]');
   if ('IntersectionObserver' in window && lazyBg.length) {
