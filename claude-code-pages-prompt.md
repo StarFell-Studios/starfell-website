@@ -66,9 +66,26 @@ The gold here is that `Line_Art/` contains Issue 3 ink pages that match finished
 
 (Ignore `Page09 (1).tif`, `Page12.tif`, `Page12meh.png` — duplicates/rejects. The `*_Lettered_Draft1/2.jpg` files in Line_Art are b&w lettered drafts — pick ONE, e.g. `Starfell_Issue_03_Page10_Lettered_Draft1.jpg`, as a single exhibit showing the lettering stage: "Letters before color — Leo McGovern's pass on the inked page.")
 
-### B2. New piece for Wing 1 or Wing 4: the group line art
-- `Line_Art/goonies.png` — a dense group inked illustration of the whole kid cast (clear Goonies homage). Strong standalone piece. Placard: "The World Shakers — group inks." Rename `world-shakers-group-inks.webp`.
-- Optional fillers if the grid needs rhythm: `Line_Art/image (4).png`, `image (8) (1).png`, `image (12).png` (ink pages), `unnamed.png`/`unnamed (1).png`/`unnamed (2).png` (pencils). Eyeball and use at most 2–3.
+### B2. "The Line Art Library" — full exhibit (Wing 4)
+A dedicated grid of raw line art, ordered to read as a craft progression: pencils → layouts → inks → lettered drafts. All from `Line_Art/`:
+
+| # | File | Placard |
+|---|---|---|
+| 1 | `unnamed.png` | "Pencils — first pass on the page" |
+| 2 | `unnamed (1).png` | "Pencils — figures and a monster finding their shapes" |
+| 3 | `unnamed (2).png` | "Pencils — roughing in the darkness" |
+| 4 | `image (8) (1).png` | "Layout roughs — the page before the page" |
+| 5 | `image (4).png` | "Inks — the Sheriff's office, Lucas Assis" |
+| 6 | `image (12).png` | "Inks — clean blacks, no color yet" |
+| 7 | `Starfell_Issue_03_Page06_Lettered_Draft2.jpg` | "Lettered draft — Leo McGovern's balloons on raw inks" |
+| 8 | `Starfell_Issue_03_Page16_Lettered_Draft1.jpg` | "Lettered draft — night action before color" |
+
+Bonus piece if the grid wants a 9th: `Starfell_Issue_03_Page15_Lettered_Draft1.jpg` — it still carries the editor's cyan correction mark. Placard: "Lettered draft, editor's note included — this is what a real working page looks like."
+
+Centerpiece above the grid:
+- `Line_Art/goonies.png` — dense group inked illustration of the whole kid cast (clear Goonies homage). Placard: "The World Shakers — group inks." Rename `world-shakers-group-inks.webp`. Give it a wide/featured frame.
+
+(Still ignore: `Page09 (1).tif`, `Page12.tif`, `Page12meh.png` — duplicates/rejects. `Page09_Lettered_Draft1.jpg` and `Page10_Lettered_Draft1.jpg/png` are spare drafts; the Page10 draft is already used in B1's lettering exhibit.)
 
 ### B3. New Vault wing: "Wing Eight — The Pages"
 A reading-room style gallery of the best finished pages (color, lettered) — the craft on full display. Same frame/placard/lightbox system. Curated set:
@@ -90,6 +107,14 @@ A reading-room style gallery of the best finished pages (color, lettered) — th
 - `Starfell_TPB_Issue_03_Prologue01_Lettered-01.png` — Delilah wakes (bats and teddy bears)
 - `Starfell_TPB_Issue_03_Page03_Lettered-01.png` — Mister Charles ("Johnny Angel")
 - `Starfell_TPB_Issue_03_Page12_Lettered-01-01-01-01.png` — the night pages (pairs with its inks in B1)
+
+**Issue 4 Spotlight — "Delilah's Wishing Rock" (featured sub-section of this wing):**
+Four work-in-progress color pages from `Comic Book Pages/Issue_4/` — Delilah's flashback, presented as a connected strip in this order, labeled "Issue 4 — work in progress, colors by Gui Sabino":
+- `Starfell_issue4_01_023.png` — "The garden, years ago" (young Delilah at the estate)
+- `Starfell_issue4_01_025.png` — "The party" (the glow begins)
+- `Starfell_issue4_01_026.png` — "The wish" — THE key page: young Delilah in the blue dress kneeling in pink flame. The strongest single image of the set; make it the spotlight's lead/lightbox cover.
+- `Starfell_issue4_01_027.png` — "What the wish made" (the transformation bursts loose)
+These are unlettered WIP pages — beautiful and mysterious rather than story-spoiling, and approved by Mike for the site.
 
 ⚠️ **Do NOT use publicly:** `Starfell_TPB_Issue_03_Page20`–`Page24` (the GROM battle and the final-page reveal) and `Starfell_Issue_02_Page24` (Lina Jane's scrapbook ending) — these are the book's biggest spoilers. If Mike wants a "Spoiler Room" later, gate it behind a click-through warning.
 

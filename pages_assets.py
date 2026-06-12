@@ -47,16 +47,15 @@ MANIFEST = [
     # ---- Splash showcase (A2) ----
     (f"{CBP}/Issue_1/Starfell_Issue_01_Page14_Lettered-01.png",       PAGES, "i1-p14-title-splash"),
     (f"{CBP}/Issue_1/Starfell_Issue_01_Page26_Lettered-01.png",       PAGES, "i1-p26-fleur-du-ciel"),
-    # shockwave pair — both converted for review; only the strongest ships
-    (f"{CBP}/Issue_2/Starfell_Issue_02_Page20_Lettered-01.png",        PAGES, "i2-p20-shockwave"),
+    # shockwave pair — p21 ships on Story & Media; p20 hangs in The Pages wing
+    (f"{CBP}/Issue_2/Starfell_Issue_02_Page20_Lettered-01.png",        PAGES, "i2-p20-sleeping-giant"),
     (f"{CBP}/Issue_2/Starfell_Issue_02_Page21_Lettered-01-01-01.png",  PAGES, "i2-p21-shockwave"),
 
-    # ---- Issue 4 WIP (A3) — candidates for review ----
-    (f"{CBP}/Issue_4/Starfell_issue4_01_009.png", PAGES, "i4-wip-river-1"),
-    (f"{CBP}/Issue_4/Starfell_issue4_01_010.png", PAGES, "i4-wip-river-2"),
-    (f"{CBP}/Issue_4/Starfell_issue4_01_011.png", PAGES, "i4-wip-river-3"),
-    (f"{CBP}/Issue_4/Starfell_issue4_01_017.png", PAGES, "i4-wip-tree-rocks-1"),
-    (f"{CBP}/Issue_4/Starfell_issue4_01_018.png", PAGES, "i4-wip-tree-rocks-2"),
+    # ---- Issue 4 WIP (A3) — the Jackson brothers river sequence ----
+    (f"{CBP}/Issue_4/Starfell_issue4_01_010.png", PAGES, "i4-wip-fishing-hole"),
+    (f"{CBP}/Issue_4/Starfell_issue4_01_011.png", PAGES, "i4-wip-surfacing"),
+    (f"{CBP}/Issue_4/Starfell_issue4_01_012.png", PAGES, "i4-wip-rope-swing"),
+    (f"{CBP}/Issue_4/Starfell_issue4_01_013.png", PAGES, "i4-wip-underwater"),
 
     # ---- Back cover (A4) ----
     (f"{CBP}/Issue_1/Starfell_Issue_01_Back_Cover.png", COVERS, "starfell-issue-01-back-cover"),
@@ -72,14 +71,23 @@ MANIFEST = [
     (f"{CBP}/Issue_3/Starfell_TPB_Issue_03_Page18_Lettered-01.png",          PAGES, "i3-p18-color"),
     (f"{LA}/Starfell_Issue_03_Page10_Lettered_Draft1.png", PAGES, "i3-p10-lettered-draft"),
 
-    # ---- B2 group line art + optional fillers (review) ----
+    # ---- B2 The Line Art Library (Wing 4) ----
+    # unnamed (1).png is a pixel-identical duplicate of unnamed.png — converted once
     (f"{LA}/goonies.png",         PAGES, "world-shakers-group-inks"),
-    (f"{LA}/image (4).png",       PAGES, "review-ink-page-a"),
-    (f"{LA}/image (8) (1).png",   PAGES, "review-ink-page-b"),
-    (f"{LA}/image (12).png",      PAGES, "review-ink-page-c"),
-    (f"{LA}/unnamed.png",         PAGES, "review-pencils-a"),
-    (f"{LA}/unnamed (1).png",     PAGES, "review-pencils-b"),
-    (f"{LA}/unnamed (2).png",     PAGES, "review-pencils-c"),
+    (f"{LA}/unnamed.png",         PAGES, "lineart-pencils-1"),
+    (f"{LA}/unnamed (2).png",     PAGES, "grom-fight-pencils"),
+    (f"{LA}/image (8) (1).png",   PAGES, "lineart-layout-roughs"),
+    (f"{LA}/image (4).png",       PAGES, "lineart-sheriffs-office"),
+    (f"{LA}/image (12).png",      PAGES, "lineart-pencils-blocking"),
+    (f"{LA}/Starfell_Issue_03_Page06_Lettered_Draft2.jpg",  PAGES, "i3-p06-lettered-draft"),
+    (f"{LA}/Starfell_Issue_03_Page16_Lettered_Draft1.jpg",  PAGES, "i3-p16-lettered-draft"),
+    (f"{LA}/Starfell_Issue_03_Page15_Lettered_Draft1.jpg",  PAGES, "i3-p15-lettered-draft"),
+
+    # ---- B3 Issue 4 spotlight: Delilah's Wishing Rock ----
+    (f"{CBP}/Issue_4/Starfell_issue4_01_023.png", PAGES, "i4-wishing-rock-garden"),
+    (f"{CBP}/Issue_4/Starfell_issue4_01_025.png", PAGES, "i4-wishing-rock-party"),
+    (f"{CBP}/Issue_4/Starfell_issue4_01_026.png", PAGES, "i4-wishing-rock-wish"),
+    (f"{CBP}/Issue_4/Starfell_issue4_01_027.png", PAGES, "i4-wishing-rock-transformation"),
 
     # ---- B3 The Pages — pages not already converted above ----
     (f"{CBP}/Issue_1/Starfell_Issue_01_Page27_Lettered-01.png",    PAGES, "i1-p27-in-the-pines-1"),
@@ -119,6 +127,8 @@ def main():
     for src_rel, out_dir, slug in MANIFEST:
         src = CONTENT / src_rel
         dst = out_dir / f"{slug}.webp"
+        if dst.exists():
+            continue
         if not src.exists():
             failures.append(f"MISSING: {src_rel}")
             print(f"  MISSING: {src_rel}", file=sys.stderr)
